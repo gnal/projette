@@ -30,11 +30,6 @@ class Task
     protected $description;
 
     /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $done = false;
-
-    /**
      * @ORM\ManyToOne(targetEntity="Project", inversedBy="tasks")
      */
     protected $project;
@@ -59,18 +54,6 @@ class Task
     public function setDescription($description)
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getDone()
-    {
-        return $this->done;
-    }
-
-    public function setDone($done)
-    {
-        $this->done = $done;
 
         return $this;
     }

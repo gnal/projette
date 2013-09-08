@@ -11,9 +11,6 @@ class TaskAdmin extends Admin
     public function buildGrid(GridBuilder $builder)
     {
         $builder
-            ->add('done', 'boolean', [
-                'btn_false' => 'label-danger',
-            ])
             ->add('title')
             ->add('', 'action')
         ;
