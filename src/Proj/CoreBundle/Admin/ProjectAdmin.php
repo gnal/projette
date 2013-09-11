@@ -12,6 +12,7 @@ class ProjectAdmin extends Admin
     {
         $builder
             ->add('name')
+            ->add('description')
             ->add('', 'action')
         ;
     }
@@ -20,6 +21,7 @@ class ProjectAdmin extends Admin
     {
         $builder
             ->add('name')
+            ->add('description')
         ;
     }
 }

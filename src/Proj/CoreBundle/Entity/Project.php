@@ -11,6 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Project
 {
     use \Msi\AdminBundle\Doctrine\Extension\Model\Timestampable;
+    use \Msi\AdminBundle\Doctrine\Extension\Model\Sortable;
 
     /**
      * @ORM\Column(type="integer")
@@ -25,6 +26,11 @@ class Project
     protected $name;
 
     /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $description;
+
+    /**
      * @ORM\OneToMany(targetEntity="Task", mappedBy="project")
      */
     protected $tasks;
@@ -32,6 +38,18 @@ class Project
     public function __construct()
     {
         $this->tasks = new ArrayCollection();
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
     }
 
     public function getName()
