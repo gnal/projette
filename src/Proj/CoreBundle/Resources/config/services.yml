@@ -9,25 +9,8 @@ services:
         parent: msi_admin.admin
         tags:
             - { name: msi.admin }
-        calls:
-            - [ addChild, [ @proj_core_task_admin ] ]
 
     proj_core.project_manager:
         class: %msi_admin.manager.class%
         arguments: [ Proj\CoreBundle\Entity\Project ]
-        parent: msi_admin.manager
-
-    # Task
-    proj_core_task_admin:
-        class: Proj\CoreBundle\Admin\TaskAdmin
-        arguments: [ @proj_core.task_manager ]
-        parent: msi_admin.admin
-        tags:
-            - { name: msi.admin }
-        calls:
-            - [ setParent, [ @proj_core_project_admin ] ]
-
-    proj_core.task_manager:
-        class: %msi_admin.manager.class%
-        arguments: [ Proj\CoreBundle\Entity\Task ]
         parent: msi_admin.manager

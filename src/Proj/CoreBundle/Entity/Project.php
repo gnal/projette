@@ -30,16 +30,6 @@ class Project
      */
     protected $description;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Task", mappedBy="project")
-     */
-    protected $tasks;
-
-    public function __construct()
-    {
-        $this->tasks = new ArrayCollection();
-    }
-
     public function getDescription()
     {
         return $this->description;
@@ -60,18 +50,6 @@ class Project
     public function setName($name)
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getTasks()
-    {
-        return $this->tasks;
-    }
-
-    public function setTasks($tasks)
-    {
-        $this->tasks = $tasks;
 
         return $this;
     }
